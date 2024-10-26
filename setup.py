@@ -26,7 +26,8 @@ setup(
         "pandas",
         "scikit-learn",
         "XlsxWriter",
-        "speechbrain"
+        "speechbrain",
+        "numpy"
     ],
     python_requires=">=3.9",
 )
