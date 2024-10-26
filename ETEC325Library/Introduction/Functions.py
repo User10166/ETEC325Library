@@ -26,6 +26,8 @@ def printTable(array, columnNames=None):
         numRows = int(arrayShape[0])
         blankRows = ['' for i in range(numRows)]
         df = pd.DataFrame(array, index=blankRows, columns=columnNames)
+    pd.set_option("display.max_rows", None)
+    pd.set_option("display.max_columns", None)
     print(df)
     
 def printVariable(label, var, columnNames=None):
