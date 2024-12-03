@@ -9,7 +9,7 @@ def enableLogging(file):
     stdFile = open(file, 'a') as sys.stdout
 
 def disableLogging():
-    if(stdFile != None):
+    if(stdFile is not None):
         stdFile.close()
     sys.stdout = stdout
 
