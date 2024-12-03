@@ -1,15 +1,5 @@
 import numpy as np
 import pandas as pd
-import sys
-
-stdout = sys.stdout
-stdFile = None
-
-def enableLogging(file):
-    sys.stdout = open(file, 'w')
-
-def disableLogging():
-    sys.stdout = stdout
 
 def createRange(start, stop, step=1):
     inclusiveRange = np.arange(start, stop + step, step)
