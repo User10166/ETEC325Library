@@ -6,12 +6,9 @@ stdout = sys.stdout
 stdFile = None
 
 def enableLogging(file):
-    stdFile = open(file, 'w') as sys.stdout
+    sys.stdout = open(file, 'w')
 
 def disableLogging():
-    if(stdFile is not None):
-        stdFile.close()
-        stdFile = None
     sys.stdout = stdout
 
 def createRange(start, stop, step=1):
