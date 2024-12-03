@@ -11,6 +11,7 @@ def enableLogging(file):
 def disableLogging():
     if(stdFile is not None):
         stdFile.close()
+        stdFile = None
     sys.stdout = stdout
 
 def createRange(start, stop, step=1):
