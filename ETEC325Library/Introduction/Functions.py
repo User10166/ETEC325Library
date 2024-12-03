@@ -6,7 +6,7 @@ stdout = sys.stdout
 stdFile = None
 
 def enableLogging(file):
-    stdFile = open(file, 'a') as sys.stdout
+    stdFile = open(file, 'w') as sys.stdout
 
 def disableLogging():
     if(stdFile is not None):
