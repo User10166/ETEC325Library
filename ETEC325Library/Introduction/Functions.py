@@ -9,9 +9,9 @@ def enableLogging(file):
     stdFile = open(file, 'a') as sys.stdout
 
 def disableLogging():
-    sys.stdout = stdout
     if(stdFile != None):
         stdFile.close()
+    sys.stdout = stdout
 
 def createRange(start, stop, step=1):
     inclusiveRange = np.arange(start, stop + step, step)
