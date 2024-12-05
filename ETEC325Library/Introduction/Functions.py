@@ -11,7 +11,10 @@ class Logger(object):
    
     def write(self, message):
         self.terminal.write(message)
-        self.log.write(message)  
+        self.log.write(message)
+
+    def closeLog():
+        self.log.close()
 
     def flush(self):
         # this flush method is needed for python 3 compatibility.
@@ -23,6 +26,7 @@ def enableLogging(file):
     sys.stdout = Logger(file)
 
 def disableLogging():
+    sys.stdout.closeLog()
     sys.stdout = stdoutInstance
 
 def createRange(start, stop, step=1):
