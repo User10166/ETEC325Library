@@ -1,20 +1,39 @@
 import numpy as np
 import pandas as pd
 import sys
+from docx import Document
+from docx.shared import Pt
 
 stdoutInstance = sys.stdout
+
+class WordDocument():
+    def __init__(self, file):
+        self.file = file + ".docx";
+        self.document = Document()
+        style = self.document.styles['No Spacing']
+        font = style.font
+        font.name = 'Calibri (Body)'
+        font.size = Pt(11)
+        paragraph.style = self.document.styles['No Spacing']
+
+   def writeParagraph(self, text):
+       self.document.add_paragraph(text)
+
+   def saveDocument(self):
+       self.document.save(self.file)
 
 class Logger(object):
     def __init__(self, file):
         self.terminal = sys.stdout
         self.log = open(file, "w")
+        self.wordDocument = WordDocument()
    
     def write(self, message):
         self.terminal.write(message)
-        self.log.write(message)
+        self.wordDocument.writeParagraph(message)
 
     def closeLog(self):
-        self.log.close()
+        self.wordDocument.saveDocument()
 
     def flush(self):
         # this flush method is needed for python 3 compatibility.
