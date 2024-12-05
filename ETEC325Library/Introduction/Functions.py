@@ -20,7 +20,7 @@ class WordDocument():
         if(self.text == ''):
             self.text = text
         else:
-            self.text = self.text + "\n" + text
+            self.text = self.text + text
 
     def saveDocument(self):
         paragraph = self.document.add_paragraph(self.text)
