@@ -16,11 +16,11 @@ class WordDocument():
         font.size = Pt(11)
         paragraph.style = self.document.styles['No Spacing']
 
-   def writeParagraph(self, text):
-       self.document.add_paragraph(text)
+    def writeParagraph(self, text):
+        self.document.add_paragraph(text)
 
-   def saveDocument(self):
-       self.document.save(self.file)
+    def saveDocument(self):
+        self.document.save(self.file)
 
 class Logger(object):
     def __init__(self, file):
