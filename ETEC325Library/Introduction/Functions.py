@@ -13,7 +13,7 @@ class Logger(object):
         self.terminal.write(message)
         self.log.write(message)
 
-    def closeLog():
+    def closeLog(self):
         self.log.close()
 
     def flush(self):
