@@ -30,7 +30,6 @@ class WordDocument():
 class Logger(object):
     def __init__(self, file):
         self.terminal = sys.stdout
-        self.log = open(file, "w")
         self.wordDocument = WordDocument(file)
    
     def write(self, message):
