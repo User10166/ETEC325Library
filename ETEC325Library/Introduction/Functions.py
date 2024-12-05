@@ -26,7 +26,7 @@ class Logger(object):
     def __init__(self, file):
         self.terminal = sys.stdout
         self.log = open(file, "w")
-        self.wordDocument = WordDocument()
+        self.wordDocument = WordDocument(file)
    
     def write(self, message):
         self.terminal.write(message)
