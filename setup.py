@@ -27,7 +27,8 @@ setup(
         "scikit-learn",
         "XlsxWriter",
         "speechbrain",
-        "numpy"
+        "numpy",
+        "python-docx"
     ],
     python_requires=">=3.9",
 )
