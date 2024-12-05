@@ -41,6 +41,10 @@ class Logger(object):
         # you might want to specify some extra behavior here.
         pass
 
+    def __del__(self):
+        self.closeLog()
+        sys.stdout = stdoutInstance
+
 def enableLogging(file):
     sys.stdout = Logger(file)
 
