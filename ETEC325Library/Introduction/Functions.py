@@ -14,10 +14,10 @@ class WordDocument():
         font = style.font
         font.name = 'Calibri (Body)'
         font.size = Pt(11)
-        paragraph.style = self.document.styles['No Spacing']
 
     def writeParagraph(self, text):
-        self.document.add_paragraph(text)
+        paragraph = self.document.add_paragraph(text)
+        paragraph.style = self.document.styles['No Spacing']
 
     def saveDocument(self):
         self.document.save(self.file)
