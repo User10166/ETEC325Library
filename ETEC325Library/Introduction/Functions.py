@@ -14,12 +14,17 @@ class WordDocument():
         font = style.font
         font.name = 'Calibri (Body)'
         font.size = Pt(11)
+        self.text = ''
 
-    def writeParagraph(self, text):
-        paragraph = self.document.add_paragraph(text)
-        paragraph.style = self.document.styles['No Spacing']
+    def writeText(self, text):
+        if(self.text == ''):
+            self.text = text
+        else:
+            self.text = self.text + "\n" + text
 
     def saveDocument(self):
+        paragraph = self.document.add_paragraph(self.text)
+        paragraph.style = self.document.styles['No Spacing']
         self.document.save(self.file)
 
 class Logger(object):
@@ -30,7 +35,7 @@ class Logger(object):
    
     def write(self, message):
         self.terminal.write(message)
-        self.wordDocument.writeParagraph(message)
+        self.wordDocument.writeText(message)
 
     def closeLog(self):
         self.wordDocument.saveDocument()
