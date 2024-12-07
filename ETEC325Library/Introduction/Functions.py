@@ -19,6 +19,9 @@ class WordDocument():
             section.left_margin = Inches(0.5)
             section.right_margin = Inches(0.5)
             section.orientation = WD_ORIENT.LANDSCAPE
+            new_width, new_height = section.page_height, section.page_width
+            section.page_width = new_width
+            section.page_height = new_height
         style = self.document.styles['No Spacing']
         font = style.font
         font.name = 'Calibri (Body)'
