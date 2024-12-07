@@ -3,6 +3,7 @@ import pandas as pd
 import sys
 from docx import Document
 from docx.shared import Pt
+from docx.enum.section import WD_ORIENT
 
 stdoutInstance = sys.stdout
 
@@ -10,6 +11,13 @@ class WordDocument():
     def __init__(self, file):
         self.file = file + ".docx";
         self.document = Document()
+        sections = self.document.sections
+        for section in sections:
+            section.top_margin = Inches(0.5)
+            section.bottom_margin = Inches(0.5)
+            section.left_margin = Inches(0.5)
+            section.right_margin = Inches(0.5)
+            section.orientation = WD_ORIENT.LANDSCAPE
         style = self.document.styles['No Spacing']
         font = style.font
         font.name = 'Calibri (Body)'
