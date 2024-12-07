@@ -4,6 +4,7 @@ import sys
 from docx import Document
 from docx.shared import Pt
 from docx.enum.section import WD_ORIENT
+from docx.shared import Inches
 
 stdoutInstance = sys.stdout
 
