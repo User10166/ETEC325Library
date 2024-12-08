@@ -24,8 +24,8 @@ class WordDocument():
             section.page_height = new_height
         style = self.document.styles['No Spacing']
         font = style.font
-        font.name = 'JetBrains Mono'
-        font.size = Pt(13)
+        font.name = 'Consolas'
+        font.size = Pt(11)
         self.text = ''
 
     def writeText(self, text):
