@@ -1,3 +1,5 @@
+import sys
+
 sys.path.insert(0, './Introduction')
 sys.path.insert(0, './Module01')
 sys.path.insert(0, './Module04')
