@@ -24,7 +24,7 @@ class WordDocument():
             section.page_height = new_height
         style = self.document.styles['No Spacing']
         font = style.font
-        font.name = 'Consolas'
+        font.name = 'Courier New'
         font.size = Pt(11)
         self.text = ''
 
