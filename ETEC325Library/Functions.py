@@ -106,7 +106,7 @@ def printVariable(label, var, columnNames=None):
         print("\n" + label + ":")
         for item in var:
             print("\t", item)
-        print("\n")
+        print("")
     else:
         print("\n" + label + ": " + str(var))
 
