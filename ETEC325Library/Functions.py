@@ -104,7 +104,7 @@ def printVariable(label, var, columnNames=None):
         printTable(var, columnNames)
     elif(type(var) is list):
         print("\n" + label + ":")
-        print("\n".join(map(str, var)))
+        print("\t\n".join(map(str, var)))
     else:
         print("\n" + label + ": " + str(var))
 
