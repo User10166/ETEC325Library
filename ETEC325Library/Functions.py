@@ -100,15 +100,17 @@ def printTable(array, columnNames=None):
     
 def printVariable(label, var, columnNames=None):
     if(type(var) is np.ndarray):
-        print("\n" + label + ":")
+        print(label + ":")
         printTable(var, columnNames)
+        print("")
     elif(type(var) is list):
-        print("\n" + label + ":")
+        print(label + ":")
         for item in var:
             print("\t", item)
         print("")
     else:
-        print("\n" + label + ": " + str(var))
+        print(label + ": " + str(var))
+        print("")
 
 def readExcelSpreadsheet(file, useColumnNames=True, useRowLabels=False):
     if(useColumnNames):
