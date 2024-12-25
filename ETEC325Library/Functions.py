@@ -97,12 +97,12 @@ def printTable(array, columnNames=None):
     pd.set_option("display.max_rows", None)
     pd.set_option("display.max_columns", None)
     print(df)
+    print("")
     
 def printVariable(label, var, columnNames=None):
     if(type(var) is np.ndarray):
         print(label + ":")
         printTable(var, columnNames)
-        print("")
     elif(type(var) is list):
         print(label + ":")
         for item in var:
