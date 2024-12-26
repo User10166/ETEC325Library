@@ -26,7 +26,7 @@ class WordDocument():
         style = self.document.styles['No Spacing']
         font = style.font
         font.name = 'Courier New'
-        font.size = Pt(11)
+        font.size = Pt(10)
         self.text = ''
 
     def writeText(self, text):
