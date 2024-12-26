@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 stdoutInstance = sys.stdout
 
-class __WordDocument():
+class _WordDocument():
     def __init__(self, file):
         self.file = file + ".docx";
         self.document = Document()
@@ -40,10 +40,10 @@ class __WordDocument():
         paragraph.style = self.document.styles['No Spacing']
         self.document.save(self.file)
 
-class __Logger(object):
+class _Logger(object):
     def __init__(self, file):
         self.terminal = sys.stdout
-        self.wordDocument = __WordDocument(file)
+        self.wordDocument = _WordDocument(file)
    
     def write(self, message):
         self.terminal.write(message)
