@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 stdoutInstance = sys.stdout
 
-class WordDocument():
+class __WordDocument():
     def __init__(self, file):
         self.file = file + ".docx";
         self.document = Document()
@@ -40,10 +40,10 @@ class WordDocument():
         paragraph.style = self.document.styles['No Spacing']
         self.document.save(self.file)
 
-class Logger(object):
+class __Logger(object):
     def __init__(self, file):
         self.terminal = sys.stdout
-        self.wordDocument = WordDocument(file)
+        self.wordDocument = __WordDocument(file)
    
     def write(self, message):
         self.terminal.write(message)
@@ -63,11 +63,7 @@ class Logger(object):
         sys.stdout = stdoutInstance
 
 def enableLogging(file):
-    sys.stdout = Logger(file)
-
-def disableLogging():
-    sys.stdout.closeLog()
-    sys.stdout = stdoutInstance
+    sys.stdout = __Logger(file)
 
 def createRange(start, stop, step=1):
     inclusiveRange = np.arange(start, stop + step, step)
