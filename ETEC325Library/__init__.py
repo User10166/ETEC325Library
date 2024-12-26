@@ -1,2 +1,2 @@
-from .__Functions import enableLogging, createRange, printTable, printVariable, readExcelSpreadsheet, plotHistogram, getMLDataFromExcelSpreadsheet, getRawTextMLDataFromExcelSpreadsheet
-from .__Algorithms import encodeBacon, decodeBacon, runCentralLimitTheorem
+from .Functions import enableLogging, createRange, printTable, printVariable, readExcelSpreadsheet, plotHistogram, getMLDataFromExcelSpreadsheet, getRawTextMLDataFromExcelSpreadsheet
+from .Algorithms import encodeBacon, decodeBacon, runCentralLimitTheorem
