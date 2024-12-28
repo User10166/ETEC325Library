@@ -77,8 +77,8 @@ def decodeBacon(arr):
     for index in range(len(arr)):
         ithArray = arr[index]
         searchedIndex = 0
-        while(searchedIndex < len(alphabetTable) - 1):
-            if(np.array_equal(ithArray, alphabetTable[searchedIndex])):
+        while searchedIndex < len(alphabetTable) - 1:
+            if np.array_equal(ithArray, alphabetTable[searchedIndex]):
                 break
             searchedIndex = searchedIndex + 1
         ithAlphabetIndex = searchedIndex
