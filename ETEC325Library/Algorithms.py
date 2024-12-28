@@ -99,7 +99,7 @@ def getLineEquation(xValues, yValues):
     if len(yValues.shape) == 1:
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
-    elif len(yValues.shape == 2:
+    elif len(yValues.shape) == 2:
         yValues = yValues[0]
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
