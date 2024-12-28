@@ -30,7 +30,7 @@ class _WordDocument():
         self.text = ''
 
     def writeText(self, text):
-        if(self.text == ''):
+        if self.text == '':
             self.text = text
         else:
             self.text = self.text + text
@@ -72,15 +72,15 @@ def createRange(start, stop, step=1):
     
 def printTable(array, columnNames=None):
     arrayShape = array.shape
-    if(len(arrayShape) == 1):
+    if len(arrayShape) == 1:
         array = np.reshape(array, (1, arrayShape[0]))
         arrayShape = array.shape
-    if(columnNames is None):
-        if(len(arrayShape) == 1):
+    if columnNames is None:
+        if len(arrayShape) == 1:
             numRows = int(arrayShape[0])
             blankRows = ['' for i in range(numRows)]
             df = pd.DataFrame(array, index=blankRows, columns=[''])
-        elif(len(arrayShape) > 1):
+        elif len(arrayShape) > 1:
             numRows = int(arrayShape[0])
             blankRows = ['' for i in range(numRows)]
             numColumns = int(arrayShape[1])
@@ -96,10 +96,10 @@ def printTable(array, columnNames=None):
     print("")
     
 def printVariable(label, var, columnNames=None):
-    if(type(var) is np.ndarray):
+    if type(var) is np.ndarray:
         print(label + ":")
         printTable(var, columnNames)
-    elif(type(var) is list):
+    elif type(var) is list:
         print(label + ":")
         for item in var:
             print("\t", item)
@@ -109,12 +109,12 @@ def printVariable(label, var, columnNames=None):
         print("")
 
 def readExcelSpreadsheet(file, useColumnNames=True, useRowLabels=False):
-    if(useColumnNames):
+    if useColumnNames:
         headerIndex = 0
     else:
         headerIndex = None
 
-    if(useRowLabels):
+    if useRowLabels:
         rowIndex = 0
     else:
         rowIndex = None
@@ -127,14 +127,14 @@ def readExcelSpreadsheet(file, useColumnNames=True, useRowLabels=False):
 
 def plotHistogram(data, bins=None, title=None, xAxisTitle=None, yAxisTitle=None, save=False, saveDir=None):
     plt.hist(data, bins=bins)
-    if(title is not None):
+    if title is not None:
         plt.title(title)
-    if(xAxisTitle is not None):
+    if xAxisTitle is not None:
         plt.xlabel(xAxisTitle)
-    if(yAxisTitle is not None):
+    if yAxisTitle is not None:
         plt.ylabel(yAxisTitle)
 
-    if(save and saveDir is not None):
+    if save and saveDir is not None:
         plt.savefig(saveDir)
 
     plt.show()
@@ -143,7 +143,7 @@ def plotHistogram(data, bins=None, title=None, xAxisTitle=None, yAxisTitle=None,
     plt.gcf()
 
 def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, useNumericCategories=False):
-    if(useColumnNames):
+    if useColumnNames:
         headerIndex = 0
     else:
         headerIndex = None
@@ -154,7 +154,7 @@ def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, u
     indexList = list(data.index)
     uniqueIndexesList = list(data.index.unique())
     numClasses = len(uniqueIndexesList)
-    if(useNumericCategories):
+    if useNumericCategories:
         Y = [int(idx) for idx in indexList]
     else:
         Y = [uniqueIndexesList.index(idx) for idx in indexList]
@@ -163,7 +163,7 @@ def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, u
     return X, Y, uniqueIndexesList, numClasses, namesList
 
 def getRawTextMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, useNumericCategories=False):
-    if(useColumnNames):
+    if useColumnNames:
         headerIndex = 0
     else:
         headerIndex = None
@@ -178,7 +178,7 @@ def getRawTextMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRo
     indexList = list(data.index)
     uniqueIndexesList = list(data.index.unique())
     numClasses = len(uniqueIndexesList)
-    if(useNumericCategories):
+    if useNumericCategories:
         Y = [int(idx) for idx in indexList]
     else:
         Y = [uniqueIndexesList.index(idx) for idx in indexList]
