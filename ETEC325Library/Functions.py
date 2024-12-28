@@ -67,8 +67,7 @@ def enableLogging(file):
 
 def createRange(start, stop, step=1):
     inclusiveRange = np.arange(start, stop + step, step)
-    rangeShape = inclusiveRange.shape
-    return np.reshape(inclusiveRange, (1, rangeShape[0]))
+    return inclusiveRange
     
 def printTable(array, columnNames=None):
     arrayShape = array.shape
