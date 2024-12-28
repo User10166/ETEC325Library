@@ -96,10 +96,21 @@ def runCentralLimitTheorem(A, sampleSize):
     return np.array(sampleMeans)
 
 def getLineEquation(xValues, yValues):
-    y2 = int(yValues[-1] + 0.5)
-    y1 = int(yValues[0] + 0.5)
-    x2 = int(xValues[-1] + 0.5)
-    x1 = int(xValues[0] + 0.5)
+    if len(yValues.shape) == 1:
+        y2 = int(yValues[-1] + 0.5)
+        y1 = int(yValues[0] + 0.5)
+    elif len(yValues.shape == 2:
+        yValues = yValues[0]
+        y2 = int(yValues[-1] + 0.5)
+        y1 = int(yValues[0] + 0.5)
+
+    if len(xValues.shape) == 1:
+        x2 = int(xValues[-1] + 0.5)
+        x1 = int(xValues[0] + 0.5)
+    elif len(xValues.shape) == 2:
+        xValues = xValues[0]
+        x2 = int(xValues[-1] + 0.5)
+        x1 = int(xValues[0] + 0.5)
 
     mn = y2 - y1
     md = x2 - x1
