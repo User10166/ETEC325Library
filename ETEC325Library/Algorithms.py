@@ -144,6 +144,8 @@ def getLineEquation(xValues, yValues, y="y"):
     b = -(m * x1) + y1
     if b.is_integer():
         b = int(b)
+    else:
+        b = int(b * 10.0 + 0.5) / 10.0
     if b < 0:
         bString = ' - ' + str(b)
     elif b > 0:
