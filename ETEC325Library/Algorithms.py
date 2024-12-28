@@ -95,7 +95,7 @@ def runCentralLimitTheorem(A, sampleSize):
 
     return np.array(sampleMeans)
 
-def getLineEquation(xValues, yValues):
+def getLineEquation(xValues, yValues, y="y"):
     if len(yValues.shape) == 1:
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
@@ -124,8 +124,22 @@ def getLineEquation(xValues, yValues):
             mString = str(int(m))
     else:
         if mn < 0 or md < 0:
-            mString = '-' + str(abs(mn)) + '/' + str(abs(md))
+            mn = abs(mn)
+            md = abs(md)
+            nf = [i for i in range(1, mn + 1) if mn % i == 0]
+            df = [i for i in range(1, md + 1) if md % i == 0]
+            cf = [f for f in nf if f in df]
+            gcf = cf[-1]
+            mn = int(mn / gcf)
+            md = int(md / gcf)
+            mString = '-' + str(mn) + '/' + str(md)
         else:
+            nf = [i for i in range(1, mn + 1) if mn % i == 0]
+            df = [i for i in range(1, md + 1) if md % i == 0]
+            cf = [f for f in nf if f in df]
+            gcf = cf[-1]
+            mn = int(mn / gcf)
+            md = int(md / gcf)
             mString = str(mn) + '/' + str(md)
     b = -(m * x1) + y1
     if b.is_integer():
@@ -136,7 +150,7 @@ def getLineEquation(xValues, yValues):
         bString = ' + ' + str(b)
     elif b == 0:
         bString = ''
-    eqnString = 'y = ' + mString + 'x' + bString
+    eqnString = y + ' = ' + mString + 'x' + bString
     return eqnString
     
     
