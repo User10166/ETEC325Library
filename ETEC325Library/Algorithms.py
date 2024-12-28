@@ -123,6 +123,8 @@ def getLineEquation(xValues, yValues):
         else:
             mString = str(mn) + '/' + str(md)
     b = -(m * x1) + y1
+    if b.is_integer():
+        b = int(b)
     if b < 0:
         bString = ' - ' + str(b)
     elif b > 0:
