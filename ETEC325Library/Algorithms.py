@@ -116,7 +116,12 @@ def getLineEquation(xValues, yValues):
     md = x2 - x1
     m = mn / md
     if mn % md == 0:
-        mString = str(int(m))
+        if int(m) == 1:
+            mString = ''
+        elif int(m) == -1:
+            mString = '-'
+        else:
+            mString = str(int(m))
     else:
         if mn < 0 or md < 0:
             mString = '-' + str(abs(mn)) + '/' + str(abs(md))
