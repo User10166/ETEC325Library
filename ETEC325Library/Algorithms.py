@@ -95,6 +95,10 @@ def runCentralLimitTheorem(A, sampleSize):
 
     return np.array(sampleMeans)
 
+def runBayesTheorem(likelihood, prior, marginal):
+    posterior = (likelihood * prior) / marginal
+    return posterior
+
 def getLineEquation(xValues, yValues, y="y"):
     if len(yValues.shape) == 1:
         y2 = int(yValues[-1] + 0.5)
