@@ -162,5 +162,15 @@ def getLineEquation(xValues, yValues, y="y"):
         bString = ''
     eqnString = y + ' = ' + mString + 'x' + bString
     return eqnString
+
+def getLineFromCoefficients(m, x, b):
+    if len(x.shape) == 2:
+        dim0, dim1 = x.shape
+        if dim0 == 1:
+            x = np.squeeze(x, axis=0)
+        elif dim1 == 1:
+            x = np.squeeze(x, axis=1)
+    y = np.array([m * xValue + b for xValue in x])
+    return y
     
     
