@@ -142,33 +142,35 @@ def plotHistogram(data, bins=None, title=None, xAxisTitle=None, yAxisTitle=None,
     plt.clf()
     plt.gcf()
 
-def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, useNumericCategories=False):
+def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesCol=-1):
     if useColumnNames:
         headerIndex = 0
     else:
         headerIndex = None
 
-    data = pd.read_excel(file, header=headerIndex, index_col=categoriesRow)
+    data = pd.read_excel(file, header=headerIndex, index_col=categoriesCol)
     X = data.to_numpy()
     Y = None
     indexList = list(data.index)
     uniqueIndexesList = list(data.index.unique())
     numClasses = len(uniqueIndexesList)
-    if useNumericCategories:
-        Y = [int(idx) for idx in indexList]
-    else:
-        Y = [uniqueIndexesList.index(idx) for idx in indexList]
+    firstCategory = indexList[0]
+    try:
+        int(firstCategory)
+        Y = np.array([int(idx) for idx in indexList])
+    except ValueError:
+        Y = np.array([uniqueIndexesList.index(idx) for idx in indexList])
     namesList = list(data.columns)
 
     return X, Y, uniqueIndexesList, numClasses, namesList
 
-def getRawTextMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRow=-1, useNumericCategories=False):
+def getRawTextMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesCol=-1):
     if useColumnNames:
         headerIndex = 0
     else:
         headerIndex = None
 
-    data = pd.read_excel(file, header=headerIndex, index_col=categoriesRow)
+    data = pd.read_excel(file, header=headerIndex, index_col=categoriesCol)
     XRaw = data[data.columns[0]].tolist()
     XRaw = [str(s) for s in XRaw]
     XRaw = [s.replace("\\n", "\n") for s in XRaw]
@@ -178,10 +180,12 @@ def getRawTextMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesRo
     indexList = list(data.index)
     uniqueIndexesList = list(data.index.unique())
     numClasses = len(uniqueIndexesList)
-    if useNumericCategories:
-        Y = [int(idx) for idx in indexList]
-    else:
-        Y = [uniqueIndexesList.index(idx) for idx in indexList]
+    firstCategory = indexList[0]
+    try:
+        int(firstCategory)
+        Y = np.array([int(idx) for idx in indexList])
+    except ValueError:
+        Y = np.array([uniqueIndexesList.index(idx) for idx in indexList])
     namesList = list(data.columns)
 
     return XRaw, Y, uniqueIndexesList, numClasses, namesList
