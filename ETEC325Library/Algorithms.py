@@ -100,7 +100,11 @@ def getLineEquation(xValues, yValues, y="y"):
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
     elif len(yValues.shape) == 2:
-        yValues = yValues[0]
+        dim0, dim1 = yValues.shape
+        if dim0 == 1:
+            yValues = np.squeeze(yValues, axis=0)
+        elif dim1 == 1:
+            yValues = np.squeeze(yValues, axis=1)
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
 
@@ -108,7 +112,11 @@ def getLineEquation(xValues, yValues, y="y"):
         x2 = int(xValues[-1] + 0.5)
         x1 = int(xValues[0] + 0.5)
     elif len(xValues.shape) == 2:
-        xValues = xValues[0]
+        dim0, dim1 = xValues.shape
+        if dim0 == 1:
+            xValues = np.squeeze(xValues, axis=0)
+        elif dim1 == 1:
+            xValues = np.squeeze(xValues, axis=1)
         x2 = int(xValues[-1] + 0.5)
         x1 = int(xValues[0] + 0.5)
 
