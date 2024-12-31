@@ -170,8 +170,9 @@ def getLineFromCoefficients(m, x, b):
             x = np.squeeze(x, axis=0)
         elif dim1 == 1:
             x = np.squeeze(x, axis=1)
-    y = np.array([m * xValue + b for xValue in x])
-    return y
+    xSorted = np.sort(x)
+    y = np.array([m * xValue + b for xValue in xSorted])
+    return xSorted, y
 
 def findCommonItemsInLists(primary, secondary):
     return [item for item in primary if item in secondary]
