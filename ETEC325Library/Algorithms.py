@@ -155,9 +155,9 @@ def getLineEquation(xValues, yValues, y="y"):
     else:
         b = int(b * 10.0 + 0.5) / 10.0
     if b < 0:
-        bString = ' - ' + str(b)
+        bString = ' - ' + str(abs(b))
     elif b > 0:
-        bString = ' + ' + str(b)
+        bString = ' + ' + str(abs(b))
     elif b == 0:
         bString = ''
     eqnString = y + ' = ' + mString + 'x' + bString
