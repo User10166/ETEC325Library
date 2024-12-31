@@ -172,5 +172,11 @@ def getLineFromCoefficients(m, x, b):
             x = np.squeeze(x, axis=1)
     y = np.array([m * xValue + b for xValue in x])
     return y
+
+def findCommonItemsInLists(primary, secondary):
+    return [item for item in primary if item in secondary]
+
+def findUniqueItemsInLists(primary, secondary):
+    return [item for item in primary if item not in secondary]
     
     
