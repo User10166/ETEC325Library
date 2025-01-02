@@ -125,23 +125,6 @@ def readExcelSpreadsheet(file, useColumnNames=True, useRowLabels=False):
 
     return dataNumbers, indexList, namesList
 
-def plotHistogram(data, bins=None, title=None, xAxisTitle=None, yAxisTitle=None, save=False, saveDir=None):
-    plt.hist(data, bins=bins)
-    if title is not None:
-        plt.title(title)
-    if xAxisTitle is not None:
-        plt.xlabel(xAxisTitle)
-    if yAxisTitle is not None:
-        plt.ylabel(yAxisTitle)
-
-    if save and saveDir is not None:
-        plt.savefig(saveDir)
-
-    plt.show()
-
-    plt.clf()
-    plt.gcf()
-
 def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesCol=-1):
     if useColumnNames:
         headerIndex = 0
