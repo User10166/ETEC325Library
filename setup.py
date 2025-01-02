@@ -26,7 +26,6 @@ setup(
         "pandas",
         "scikit-learn",
         "XlsxWriter",
-        "speechbrain",
         "numpy",
         "python-docx"
     ],
