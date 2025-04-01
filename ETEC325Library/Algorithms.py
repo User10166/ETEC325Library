@@ -107,8 +107,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        y2 = int(yValues[-1] + 0.5)
-        y1 = int(yValues[0] + 0.5)
+        y2 = yValues[-1]
+        y1 = yValues[0]
     elif len(yValues.shape) == 2:
         dim0, dim1 = yValues.shape
         if dim0 == 1:
@@ -121,8 +121,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        y2 = int(yValues[-1] + 0.5)
-        y1 = int(yValues[0] + 0.5)
+        y2 = yValues[-1]
+        y1 = yValues[0]
 
     if len(xValues.shape) == 1:
         xun, xindices = np.unique(xValues, return_index=True)
@@ -131,8 +131,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        x2 = int(xValues[-1] + 0.5)
-        x1 = int(xValues[0] + 0.5)
+        x2 = xValues[-1]
+        x1 = xValues[0]
     elif len(xValues.shape) == 2:
         dim0, dim1 = xValues.shape
         if dim0 == 1:
@@ -145,38 +145,13 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        x2 = int(xValues[-1] + 0.5)
-        x1 = int(xValues[0] + 0.5)
+        x2 = xValues[-1]
+        x1 = xValues[0]
 
     mn = y2 - y1
     md = x2 - x1
     m = mn / md
-    if mn % md == 0:
-        if int(m) == 1:
-            mString = ''
-        elif int(m) == -1:
-            mString = '-'
-        else:
-            mString = str(int(m))
-    else:
-        if mn < 0 or md < 0:
-            mn = abs(mn)
-            md = abs(md)
-            nf = [i for i in range(1, mn + 1) if mn % i == 0]
-            df = [i for i in range(1, md + 1) if md % i == 0]
-            cf = [f for f in nf if f in df]
-            gcf = cf[-1]
-            mn = int(mn / gcf)
-            md = int(md / gcf)
-            mString = '-' + str(mn) + '/' + str(md)
-        else:
-            nf = [i for i in range(1, mn + 1) if mn % i == 0]
-            df = [i for i in range(1, md + 1) if md % i == 0]
-            cf = [f for f in nf if f in df]
-            gcf = cf[-1]
-            mn = int(mn / gcf)
-            md = int(md / gcf)
-            mString = str(mn) + '/' + str(md)
+    mString = simplify_fraction(mn, md)
     b = -(m * x1) + y1
     if b.is_integer():
         b = int(b)
@@ -208,5 +183,15 @@ def findCommonItemsInLists(primary, secondary):
 
 def findUniqueItemsInLists(primary, secondary):
     return [item for item in primary if item not in secondary]
+
+def simplify_fraction(numerator, denominator):
+    if math.gcd(numerator, denominator) == denominator:
+        return str(int(numerator/denominator))
+    elif math.gcd(numerator, denominator) == 1:
+        return str(numerator) + "/" + str(denominator)
+    else:
+        top = numerator / math.gcd(numerator, denominator)
+        bottom = denominator / math.gcd(numerator, denominator)
+        return str(top) + "/" + str(bottom)
     
     
