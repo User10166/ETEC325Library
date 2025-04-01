@@ -1,6 +1,6 @@
 import numpy as np
 import math
-import Fraction
+from fractions import Fraction
 
 def encodeBacon(word):
     a = np.array([0, 0, 0, 0, 0])
