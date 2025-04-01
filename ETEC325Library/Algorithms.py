@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def encodeBacon(word):
     a = np.array([0, 0, 0, 0, 0])
