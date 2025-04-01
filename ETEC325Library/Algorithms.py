@@ -154,9 +154,9 @@ def getLineEquation(xValues, yValues, y="y"):
     md = x2 - x1
     m = mn / md
     mSimplified = Fraction(m).limit_denominator()
-    numeratorString = str(mSimplified.numerator)
-    denominatorString = str(mSimplified.denominator)
-    mString = numeratorString + "/" + denominatorString
+    numerator = mSimplified.numerator
+    denominator = mSimplified.denominator
+    mString = simplify_fraction(numerator, denominator)
     b = -(m * x1) + y1
     if b.is_integer():
         b = int(b)
