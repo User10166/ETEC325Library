@@ -149,8 +149,8 @@ def getLineEquation(xValues, yValues, y="y"):
         x2 = float(xValues[-1])
         x1 = float(xValues[0])
 
-    mn = y2 - y1
-    md = x2 - x1
+    mn = int((y2 - y1) + 0.5)
+    md = int((x2 - x1) + 0.5)
     m = mn / md
     mString = simplify_fraction(mn, md)
     b = -(m * x1) + y1
