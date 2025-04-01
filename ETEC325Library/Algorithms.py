@@ -108,8 +108,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        y2 = yValues[-1]
-        y1 = yValues[0]
+        y2 = float(yValues[-1])
+        y1 = float(yValues[0])
     elif len(yValues.shape) == 2:
         dim0, dim1 = yValues.shape
         if dim0 == 1:
@@ -122,8 +122,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        y2 = yValues[-1]
-        y1 = yValues[0]
+        y2 = float(yValues[-1])
+        y1 = float(yValues[0])
 
     if len(xValues.shape) == 1:
         xun, xindices = np.unique(xValues, return_index=True)
@@ -132,8 +132,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        x2 = xValues[-1]
-        x1 = xValues[0]
+        x2 = float(xValues[-1])
+        x1 = float(xValues[0])
     elif len(xValues.shape) == 2:
         dim0, dim1 = xValues.shape
         if dim0 == 1:
@@ -146,8 +146,8 @@ def getLineEquation(xValues, yValues, y="y"):
         xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
-        x2 = xValues[-1]
-        x1 = xValues[0]
+        x2 = float(xValues[-1])
+        x1 = float(xValues[0])
 
     mn = y2 - y1
     md = x2 - x1
