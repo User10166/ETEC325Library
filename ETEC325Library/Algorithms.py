@@ -104,6 +104,9 @@ def getLineEquation(xValues, yValues, y="y"):
         xun, xindices = np.unique(xValues, return_index=True)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
+        xindices = np.argsort(xValues)
+        xValues = xValues[xindices]
+        yValues = yValues[xindices]
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
     elif len(yValues.shape) == 2:
@@ -115,11 +118,17 @@ def getLineEquation(xValues, yValues, y="y"):
         xun, xindices = np.unique(xValues, return_index=True)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
+        xindices = np.argsort(xValues)
+        xValues = xValues[xindices]
+        yValues = yValues[xindices]
         y2 = int(yValues[-1] + 0.5)
         y1 = int(yValues[0] + 0.5)
 
     if len(xValues.shape) == 1:
         xun, xindices = np.unique(xValues, return_index=True)
+        xValues = xValues[xindices]
+        yValues = yValues[xindices]
+        xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
         x2 = int(xValues[-1] + 0.5)
@@ -131,6 +140,9 @@ def getLineEquation(xValues, yValues, y="y"):
         elif dim1 == 1:
             xValues = np.squeeze(xValues, axis=1)
         xun, xindices = np.unique(xValues, return_index=True)
+        xValues = xValues[xindices]
+        yValues = yValues[xindices]
+        xindices = np.argsort(xValues)
         xValues = xValues[xindices]
         yValues = yValues[xindices]
         x2 = int(xValues[-1] + 0.5)
