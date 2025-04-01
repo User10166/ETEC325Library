@@ -1,5 +1,6 @@
 import numpy as np
 import math
+import Fraction
 
 def encodeBacon(word):
     a = np.array([0, 0, 0, 0, 0])
@@ -149,10 +150,13 @@ def getLineEquation(xValues, yValues, y="y"):
         x2 = float(xValues[-1])
         x1 = float(xValues[0])
 
-    mn = int((y2 - y1) + 0.5)
-    md = int((x2 - x1) + 0.5)
+    mn = y2 - y1
+    md = x2 - x1
     m = mn / md
-    mString = simplify_fraction(mn, md)
+    mSimplified = Fraction(m).limit_denominator()
+    numeratorString = str(mSimplified.numerator)
+    denominatorString = str(mSimplified.denominator)
+    mString = numeratorString + "/" + denominatorString
     b = -(m * x1) + y1
     if b.is_integer():
         b = int(b)
