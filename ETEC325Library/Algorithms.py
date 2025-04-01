@@ -150,8 +150,8 @@ def getLineEquation(xValues, yValues, y="y"):
         x2 = float(xValues[-1])
         x1 = float(xValues[0])
 
-    mn = int((y2 - y1) * 10.0 + 0.5) / 10.0
-    md = int((x2 - x1) * 10.0 + 0.5) / 10.0
+    mn = int((y2 - y1) * 100.0 + 0.5) / 100.0
+    md = int((x2 - x1) * 100.0 + 0.5) / 100.0
     m = mn / md
     mSimplified = Fraction(m).limit_denominator()
     numerator = mSimplified.numerator
