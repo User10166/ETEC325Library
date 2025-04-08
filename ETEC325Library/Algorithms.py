@@ -102,53 +102,18 @@ def runBayesTheorem(likelihood, prior, marginal):
     return posterior
 
 def getLineEquation(xValues, yValues, y="y"):
-    if len(yValues.shape) == 1:
-        xun, xindices = np.unique(xValues, return_index=True)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        xindices = np.argsort(xValues)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        y2 = float(yValues[-1])
-        y1 = float(yValues[0])
-    elif len(yValues.shape) == 2:
-        dim0, dim1 = yValues.shape
-        if dim0 == 1:
-            yValues = np.squeeze(yValues, axis=0)
-        elif dim1 == 1:
-            yValues = np.squeeze(yValues, axis=1)
-        xun, xindices = np.unique(xValues, return_index=True)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        xindices = np.argsort(xValues)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        y2 = float(yValues[-1])
-        y1 = float(yValues[0])
-
-    if len(xValues.shape) == 1:
-        xun, xindices = np.unique(xValues, return_index=True)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        xindices = np.argsort(xValues)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        x2 = float(xValues[-1])
-        x1 = float(xValues[0])
-    elif len(xValues.shape) == 2:
-        dim0, dim1 = xValues.shape
-        if dim0 == 1:
-            xValues = np.squeeze(xValues, axis=0)
-        elif dim1 == 1:
-            xValues = np.squeeze(xValues, axis=1)
-        xun, xindices = np.unique(xValues, return_index=True)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        xindices = np.argsort(xValues)
-        xValues = xValues[xindices]
-        yValues = yValues[xindices]
-        x2 = float(xValues[-1])
-        x1 = float(xValues[0])
+    xValues = xValues.flatten()
+    yValues = yValues.flatten()
+    xun, xindices = np.unique(xValues, return_index=True)
+    xValues = xValues[xindices]
+    yValues = yValues[xindices]
+    xindices = np.argsort(xValues)
+    xValues = xValues[xindices]
+    yValues = yValues[xindices]
+    y2 = float(yValues[-1])
+    y1 = float(yValues[0])
+    x2 = float(xValues[-1])
+    x1 = float(xValues[0])
 
     mn = int((y2 - y1) * 100.0 + 0.5) / 100.0
     md = int((x2 - x1) * 100.0 + 0.5) / 100.0
