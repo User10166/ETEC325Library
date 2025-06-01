@@ -110,7 +110,6 @@ def printVariable(label, var, columnNames=None):
         print("")
     else:
         print(label + ": " + str(var))
-        print("")
 
 def readExcelSpreadsheet(file, useColumnNames=True, useRowLabels=False):
     if useColumnNames:
