@@ -65,6 +65,10 @@ class _Logger(object):
 def enableLogging(file):
     sys.stdout = _Logger(file)
 
+def disableLogging(file):
+    sys.stdout.closeLog()
+    sys.stdout = stdoutInstance
+
 def createRange(start, stop, step=1):
     inclusiveRange = np.arange(start, stop + step, step)
     return inclusiveRange
