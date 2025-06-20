@@ -143,7 +143,13 @@ def getMLDataFromExcelSpreadsheet(file, useColumnNames=True, categoriesCol=-1):
     firstCategory = indexList[0]
     try:
         int(firstCategory)
-        Y = np.array([int(idx) for idx in indexList])
+        YIdx = [uniqueIndexesList.index(idx) for idx in uniqueIndexesList]
+        YData = [int(idx) for idx in uniqueIndexesList]
+        YDiff = set(YIdx).difference(YData)
+        if len(YDiff) == 0:
+            Y = np.array([int(idx) for idx in indexList])
+        else:
+            Y = np.array([uniqueIndexesList.index(idx) for idx in indexList])
     except ValueError:
         Y = np.array([uniqueIndexesList.index(idx) for idx in indexList])
     namesList = list(data.columns)
