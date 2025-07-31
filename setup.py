@@ -12,7 +12,7 @@ site.ENABLE_USER_SITE = "--user" in sys.argv[1:]
 
 setup(
     name="ETEC325Library",
-    version="2.0.4",
+    version="3.0.0",
     description="Library functions for ETEC 325",
     author="ETEC 325",
     classifiers=[
