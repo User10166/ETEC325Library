@@ -23,8 +23,6 @@ classifiers = [
 license = "GPL-3.0-only"
 license-files = ["COPYING*"]
 
-dynamic = ["version"]
-
 dependencies = [
 "scipy",
 "matplotlib",
