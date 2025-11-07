@@ -12,11 +12,17 @@ site.ENABLE_USER_SITE = "--user" in sys.argv[1:]
 
 setup(
     name="ETEC325Library",
-    version="3.0.0",
+    version="1.0.0",
     description="Library functions for ETEC 325",
-    author="ETEC 325",
+    author="R. Duke",
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Intended Audience :: Education",
+        "Natural Language :: English",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Scientific/Engineering",
     ],
     packages=setuptools.find_packages(),
     install_requires=[
@@ -31,3 +37,4 @@ setup(
     ],
     python_requires=">=3.9",
 )
+
