@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ETEC 325 Library"
+name = "ETEC325Library"
 version = "1.0.0"
 authors = [
   { name="R. Duke", email="rduke01@nyit.edu" },
